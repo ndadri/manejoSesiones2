@@ -68,8 +68,8 @@ public class GenerarPdfServlet extends HttpServlet {
 
             // recorrer los items del carrito y agregarlos como filas en la tabla
             for (ItemCarro item : detalleCarro.getItem()) {
-                table.addCell(String.valueOf(item.getProducto().getIdProducto()));
-                table.addCell(item.getProducto().getNombre());
+                table.addCell(String.valueOf(item.getProducto().getId()));
+                table.addCell(item.getProducto().getNombreProducto());
                 table.addCell(String.format("$%.2f", item.getProducto().getPrecio()));
                 table.addCell(String.valueOf(item.getCantidad()));
                 table.addCell(String.format("$%.2f", item.getSubtotal()));

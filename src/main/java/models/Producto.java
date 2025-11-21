@@ -1,103 +1,123 @@
 package models;
 
-public class Producto {
-    /** Identificador único del producto */
-    private Long idProducto;
-    /** Nombre del producto */
-    private String nombre;
-    /** Tipo o categoría del producto */
-    private String tipo;
-    /** Precio del producto */
-    private double precio;
+import java.time.LocalDate;
 
-    /**
-     * Constructor vacío de la clase Producto.
-     *
-     * Se utiliza cuando se requiere crear un objeto sin inicializar sus atributos
-     * de manera inmediata.
-     */
+/**
+ * Clase Producto que representa un objeto con sus atributos básicos:
+ * id del producto, nombre, tipo y precio.
+ *
+ * Descripción:
+ * Esta clase se utiliza para modelar los datos de un producto dentro del sistema,
+ * permitiendo almacenar y acceder a su información de manera encapsulada mediante
+ * métodos getters y setters.
+ */
+
+public class Producto {
+    private Long id;
+    private String nombreProducto;
+    private Categoria categoria;
+    private int stock;
+    private String descripcion;
+    private double precio;
+    private String codigo;
+    private LocalDate fechaElaboracion;
+    private LocalDate fechaCaducidad;
+    private int condicion;
+
     public Producto() {
     }
 
-    /**
-     * Constructor con parámetros.
-     *
-     * @param idProducto Identificador del producto.
-     * @param nombre Nombre del producto.
-     * @param tipo Tipo o categoría del producto.
-     * @param precio Precio del producto.
-     *
-     * Este constructor permite inicializar todos los atributos de la clase
-     * en el momento de la creación del objeto.
-     */
-    public Producto(Long idProducto, String nombre, String tipo, double precio) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.tipo = tipo;
+    public Producto(Long id, String nombreProducto, int cantidad, String descripcion, double precio, String codigo, String tipo, LocalDate fechaElaboracion, LocalDate fechaCaducidad, int condicion) {
+        this.id = id;
+        this.nombreProducto = nombreProducto;
+        Categoria categoria = new Categoria();
+        categoria.setNombre(tipo);
+        this.stock = stock;
+        this.descripcion = descripcion;
         this.precio = precio;
+        this.codigo = codigo;
+        this.fechaElaboracion = fechaElaboracion;
+        this.fechaCaducidad = fechaCaducidad;
+        this.condicion = condicion;
     }
 
-    /**
-     * Obtiene el ID del producto.
-     * @return idProducto
-     */
-    public Long getIdProducto() {
-        return idProducto;
+    public Long getId() {
+        return id;
     }
 
-    /**
-     * Asigna un nuevo ID al producto.
-     * @param idProducto Identificador único del producto.
-     */
-    public void setIdProducto(Long idProducto) {
-        this.idProducto = idProducto;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    /**
-     * Obtiene el nombre del producto.
-     * @return nombre del producto.
-     */
-    public String getNombre() {
-        return nombre;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    /**
-     * Asigna un nombre al producto.
-     * @param nombre Nombre del producto.
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
-    /**
-     * Obtiene el tipo o categoría del producto.
-     * @return tipo del producto.
-     */
-    public String getTipo() {
-        return tipo;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    /**
-     * Asigna el tipo o categoría del producto.
-     * @param tipo Tipo del producto.
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    /**
-     * Obtiene el precio del producto.
-     * @return precio del producto.
-     */
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public double getPrecio() {
         return precio;
     }
 
-    /**
-     * Asigna un precio al producto.
-     * @param precio Precio del producto.
-     */
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public LocalDate getFechaElaboracion() {
+        return fechaElaboracion;
+    }
+
+    public void setFechaElaboracion(LocalDate fechaElaboracion) {
+        this.fechaElaboracion = fechaElaboracion;
+    }
+
+    public LocalDate getFechaCaducidad() {
+        return fechaCaducidad;
+    }
+
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public int getCondicion() {
+        return condicion;
+    }
+
+    public void setCondicion(int condicion) {
+        this.condicion = condicion;
     }
 }

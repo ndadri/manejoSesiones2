@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConexionBdd {
 
-    private static String url = "jdbc:mysql://localhost:3306/sistema_medico?serverTimezone=UTC";
+    private static String url = "jdbc:mysql://localhost:3306/siscompraventa?serverTimezone=UTC";
     private static String username = "root";
     private static String password = "";
 

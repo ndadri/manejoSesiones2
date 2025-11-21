@@ -3,15 +3,26 @@ package repositorio;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface Repository<T> {
-    //Implemento un método para listar los productos
+/**
+ *
+ * Repository<T> es un contrato genérico para operaciones
+ * básicas de persistencia (CRUD mínimo) sobre objetos de tipo T.
+ * Define qué debe hacerse (listar, buscar por id, guardar, eliminar)
+ * pero no cómo — eso lo hace una clase que implemente la interfaz.
+ */
+public interface Repository<T>{
+    //Devuelve una List con todos los objetos ej. todos los productos
     List<T> listar() throws SQLException;
-    //implementamos un método para buscar un producto por id
+
+    //Busca y devuelve una entidad T por su identificador.
     T porId(Long id) throws SQLException;
-    //implementamos un método para guardar la información en la BBDD
+
+    //Sirve para insertar o actualizar una entidad T.
     void guardar(T t) throws SQLException;
-    //implementamos un método para eliminar
-    void eliminar(Long id)throws SQLException;
-    //implementar un método para desactivar el producto
-    //implementar un método para activar el producto
+
+    //Borra la entidad con el id dado.
+    void eliminar(Long id) throws SQLException;
+
+    //activa la entidad con el id
+    void activar(Long id) throws SQLException;
 }
